@@ -10,10 +10,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocalNotificationManager : NSObject
-+ (LocalNotificationManager *)shareMG;
+extern NSString * const LocalNotification_18_35_Name;
 
-+ (void)registLocalNotification;
-+ (void)setLocalNotificationWithAlertBody:(NSString *)alertBody alertTime:(NSInteger)alertTime noticeStr:(NSString *)str;
+@interface LocalNotificationManager : NSObject
+// 开启定时推送
++ (void)timingRegisterLocalNotification;
+
+// 发送及时推送
++ (void)sendLocalNotificationWithTitle:(NSString *)title content:(NSString *)content;
+
+// 发送延迟推送
++ (void)sendLocalNotificationWithTitle:(NSString *)title content:(NSString *)content alertTime:(NSInteger)alertTime;
+
+// 取消推送
++ (void)removeNotification;
 + (void)cancelLocalNotificationWithKey:(NSString *)key;
 @end

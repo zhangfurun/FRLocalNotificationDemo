@@ -23,15 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [LocalNotificationManager registLocalNotification];
 }
 
 - (IBAction)sendLocalNotification:(UIButton *)sender {
     timeNumber = 5;
     NSTimer * timer =  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(reloadTimeBtn:) userInfo:nil repeats:YES];
     [timer fire];
-    
 }
 
 - (void)reloadTimeBtn:(NSTimer *)sender {
@@ -40,7 +37,7 @@
     if (timeNumber < 0) {
         [self.button setTitle:[NSString stringWithFormat:@"完成"] forState:UIControlStateNormal];
         [sender invalidate];
-        [LocalNotificationManager setLocalNotificationWithAlertBody:@"爆炸啦" alertTime:0 noticeStr:@"Boom!!沙卡拉卡"];
+        [LocalNotificationManager sendLocalNotificationWithTitle:@"爆炸啦" content:@"Boom!!沙卡拉卡"];
     }
     timeNumber--;
 }
