@@ -11,7 +11,7 @@
 #import <UserNotifications/UserNotifications.h>
 
 NSString * const LocalNotification_18_35_Name = @"LocalNotification_18_35_Name";
-static NSString * const LOCAL_NOTIFICAITON_19_35_STRING = @"小朋友,阅读时间到了,今天别忘记读故事哦~~";
+static NSString * const LOCAL_NOTIFICAITON_19_35_STRING = @"快起床~~";
 
 static LocalNotificationManager * shareManager = nil;
 
@@ -46,7 +46,7 @@ static LocalNotificationManager * shareManager = nil;
     
     //需创建一个包含待通知内容的 UNMutableNotificationContent 对象，注意不是 UNNotificationContent ,此对象为不可变对象。
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc]init];
-    content.title = @"故事飞船提醒";
+    content.title = @"无聊的App提醒";
     content.subtitle = @"";
     content.body = LOCAL_NOTIFICAITON_19_35_STRING;
     content.badge = @1;
@@ -86,7 +86,7 @@ static LocalNotificationManager * shareManager = nil;
     noti.repeatInterval = kCFCalendarUnitDay;
     
     noti.alertBody = [NSString stringWithFormat:LOCAL_NOTIFICAITON_19_35_STRING];
-    noti.alertAction = @"故事飞船";
+    noti.alertAction = @"无聊App";
     noti.soundName = UILocalNotificationDefaultSoundName;
     noti.applicationIconBadgeNumber = 1;
     noti.userInfo = @{LocalNotification_18_35_Name : @"AddLocalNotification"};
